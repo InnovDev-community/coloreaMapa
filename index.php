@@ -28,7 +28,8 @@
             </article>
             <article class="seccion__der">
                 <h2 class="app__title">$ DESCRIPCION</h2>
-                <p class="app__descripcion">El teorema de los cuatro colores consiste básicamente, en que cualquier mapa puede ser coloreado solamente con cuatro colores distintos de tal manera que dos regiones adyacentes (es decir, que tienen una frontera en común y no sólo un punto) no tengan el mismo color. </p>
+                <p class="app__descripcion">El teorema de los cuatro colores consiste básicamente, en que cualquier mapa puede ser coloreado solamente con cuatro colores distintos de tal manera que dos regiones adyacentes (es decir, que tienen una frontera en común y no sólo un punto) no tengan el mismo color. 
+                Aunque parece un problema no matemático, sin embargo lo es y su demostración no es nada sencilla, ha costado mucho esfuerzo y 125 años el conseguirlo.</p>
                 <div class="app__funciones">
                     <button id="btnBuscarSolucion">Buscar solución</button>
                 </div>
@@ -47,8 +48,6 @@
             <a class="link-youtube icon-youtube" href="">YouTube</a>
         </footer>
     </main>
-    <script src="js/vectormapa.js">
-        
-    </script>    
+    <script src="js/vectormapa.js"></script>
 </body>
 </html>
