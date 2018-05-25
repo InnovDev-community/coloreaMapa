@@ -27,11 +27,8 @@
                 <a class="link-github icon-github" href="#">Repositorio en GitHub</a>
             </article>
             <article class="seccion__der">
-                <h2 class="app__title">$ LEYENDA_</h2>
-                <p class="app__descripcion">Este curso te enseñará lo necesario para diseñar y estructurar bases de datos relacionales 
-                    (SQL) para tus proyectos. También podrás analizarlas y crear procedimientos almacenados 
-                    (lógica en la DB), lo que te permitirá crear soluciones que un framework no te ofrece 
-                    directamente.</p>
+                <h2 class="app__title">$ DESCRIPCION</h2>
+                <p class="app__descripcion">El teorema de los cuatro colores consiste básicamente, en que cualquier mapa puede ser coloreado solamente con cuatro colores distintos de tal manera que dos regiones adyacentes (es decir, que tienen una frontera en común y no sólo un punto) no tengan el mismo color. </p>
                 <div class="app__funciones">
                     <button id="btnBuscarSolucion">Buscar solución</button>
                 </div>
@@ -50,53 +47,8 @@
             <a class="link-youtube icon-youtube" href="">YouTube</a>
         </footer>
     </main>
-    <script>
-        $(function(){
-            var gdpData = {
-                            "US-PA": 1,
-                            "US-NH": 1,
-                            "US-VT": 1,
-                        };
-            var gdpData2 = {
-                            "US-NJ": 1,
-                            "US-CA": 1,
-                            "US-SC": 1,
-                        };
-            var gdpData3 = {
-                            "US-WI": 1,
-                            "US-OR": 1,
-                            "US-KY": 1,
-                        };
-            var gdpData4 = {
-                            "US-ME": 1,
-                            "US-OH": 1,
-                            "US-OK": 1,
-                        };        
-            $('#usa-map').vectorMap({
-                map: 'us_aea',
-                backgroundColor:['#0288D1'],
-                series: {
-                    regions: [
-                        {
-                            values: gdpData,
-                            scale: ['#FF0000'],
-                        },
-                        {
-                            values: gdpData2,
-                            scale: ['#00FF00'],
-                        },
-                        {
-                            values: gdpData3,
-                            scale: ['#0000FF'],
-                        },
-                        {
-                            values: gdpData4,
-                            scale: ['#FBC02D']
-                        }
-                    ]
-                }
-            });
-        });
+    <script src="js/vectormapa.js">
+        
     </script>    
 </body>
 </html>
