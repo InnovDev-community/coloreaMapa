@@ -100,6 +100,10 @@
                     }
                 }
             ?>
+            
+            verdes["US-HI"] = 1;
+            amarillos["US-AK"] = 1;
+
             /* Formato */
             
                         
