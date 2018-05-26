@@ -54,19 +54,6 @@
         </footer>
     </main>
 
-
-<!--     <script type='text/javascript'>
-        let codigoColor = [];
-        <?php
-            /*0or($i=0; $i<count($arregloCodigos);$i++){
-                $aux = explode(":",$arregloCodigos[$i]); */
-        ?>      codigoColor.push(['<?php /*echo $aux[0];*/?>', <?php/* echo $aux[1];*/?>]);
-        <?php
-            /*}*/
-        ?>
-        console.log(codigoColor);
-    </script> -->
-
     <script type='text/javascript'>
         $(function(){
             let rojos = {};
@@ -75,6 +62,12 @@
             let amarillos = {}; 
             let codigoColor = [];
             <?php
+                /* Separacion de las regiones por su color
+                    1 == rojo
+                    2 == verde
+                    3 == azul
+                    4 == amarillo
+                 */
                 for($i=0; $i<count($arregloCodigos);$i++){
                     $aux = explode(":",$arregloCodigos[$i]);
                     if($aux[1] == 1){
@@ -101,40 +94,55 @@
                 }
             ?>
             
+            /* Color para Hawaii */
             verdes["US-HI"] = 1;
             
+            /* Color para Alaska */
             amarillos["US-AK"] = 0;
-
-            /* Formato */
             
+            /* Creacion del mapa */
                         
             $('#usa-map').vectorMap({
+
+                /* Seleccion de mapa */
                 map: 'us_aea',
+
+                /* Fondo del mapa */
                 backgroundColor:['#03A9F4'],
+
                 series: {
+
+                    /* Estilo para las regiones */
                     regions: [
                         {
-                            values: rojos,
-                            scale: ['#FF0000'],
+                            /* Arreglo de regiones rojas */
+                            values: rojos, 
+
+                            /* Indice de colores rojos */     
+                            scale: ['#FF0000'], 
                         },
                         {
+                            /* Arreglo de regiones verdes */
                             values: verdes,
-                            scale: ['#00FF00'],
+
+                            /* Indice de colores verdes */   
+                            scale: ['#00FF00'], 
                         },
                         {
+                            /* Arreglo de regiones azules */
                             values: azules,
-                            scale: ['#0000FF'],
+
+                            /* Indice de colores azules */    
+                            scale: ['#0000FF'], 
                         },
                         {
+                            /* Arreglo de regiones amarillas */
                             values: amarillos,
-                            scale: ['#00000','#FBC02D']
+
+                            /* Indice de colores amarillos */
+                            scale: ['#FBC02D']  
                         }
                     ]
-                },
-                regionStyle: {
-                    initial:{
-                        transition: 'opacity .6s ease-out'
-                    }
                 }
             });
         });

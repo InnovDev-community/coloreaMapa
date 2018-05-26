@@ -130,5 +130,5 @@ diferentecolor(X/Y, [X1/_|Tail]) :-
             not(limitacon(X,X1)),
             diferentecolor(X/Y,Tail).
 
-color(Item,[Item|_]).
-color(Item,[_|Rest]):-  color(Item,Rest). 
+color(Elemento,[Elemento|_]).
+color(Elemento,[_|Restante]):-  color(Elemento,Restante). 
