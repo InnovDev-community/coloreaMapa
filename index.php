@@ -102,14 +102,15 @@
             ?>
             
             verdes["US-HI"] = 1;
-            amarillos["US-AK"] = 1;
+            
+            amarillos["US-AK"] = 0;
 
             /* Formato */
             
                         
             $('#usa-map').vectorMap({
                 map: 'us_aea',
-                backgroundColor:['#0288D1'],
+                backgroundColor:['#03A9F4'],
                 series: {
                     regions: [
                         {
@@ -126,9 +127,14 @@
                         },
                         {
                             values: amarillos,
-                            scale: ['#FBC02D']
+                            scale: ['#00000','#FBC02D']
                         }
                     ]
+                },
+                regionStyle: {
+                    initial:{
+                        transition: 'opacity .6s ease-out'
+                    }
                 }
             });
         });
