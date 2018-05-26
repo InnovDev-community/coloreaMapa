@@ -1,3 +1,8 @@
+<?php
+    require_once('prologQuery.php');
+    $arregloCodigos = prologQuery();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,6 +53,20 @@
             <a class="link-youtube icon-youtube" href="">YouTube</a>
         </footer>
     </main>
+
+
+    <script type='text/javascript'>
+        let codigoColor = [];
+        <?php
+            for($i=0; $i<count($arregloCodigos);$i++){
+                $aux = explode(":",$arregloCodigos[$i]);
+        ?>      codigoColor.push(['<?php echo $aux[0];?>', <?php echo $aux[1];?>]);
+        <?php
+            }
+        ?>
+        console.log(codigoColor);
+    </script>
+
     <script src="js/vectormapa.js"></script>
 </body>
 </html>

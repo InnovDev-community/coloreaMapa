@@ -1,5 +1,8 @@
 $(function(){
 
+
+    
+
     /* Formato */
     let rojos = {};
     rojos["US-PA"] = 1;
