@@ -105,8 +105,72 @@
             });
 
             let mapObject = $('#usa-map').vectorMap('get', 'mapObject');
+
+            $('#btnBuscarSolucion').click(function(){
+                let delayColor = 750;
+                <?php
+                    /* Separacion de las regiones por su color
+                        1 == rojo
+                        2 == verde
+                        3 == azul
+                        4 == amarillo
+                    */
+                    for($i=0; $i<count($arregloCodigos);$i++){
+                        $aux = explode(":",$arregloCodigos[$i]);
+                    
+                        if($aux[1] == 1){
+                ?>
+                            setTimeout(() => {
+                                mapObject.series.regions[0].setValues({"<?php echo $aux[0];?>":1});
+                            }, delayColor);
+                <?php
+                        }else{
+                            if($aux[1] == 2){
+                ?>
+                                setTimeout(() => {
+                                        mapObject.series.regions[1].setValues({"<?php echo $aux[0];?>":1});
+                                }, delayColor);
+                <?php
+                            }else{
+                                if($aux[1] == 3){
+                ?>
+                                    setTimeout(() => {
+                                        mapObject.series.regions[2].setValues({"<?php echo $aux[0];?>":1});
+                                    }, delayColor);
+                <?php
+                                }else{
+                ?>
+                                    setTimeout(() => {
+                                        mapObject.series.regions[3].setValues({"<?php echo $aux[0];?>":1});
+                                    }, delayColor);
+                <?php
+                                }
+                            }
+                        }
+                    /*  sleep(1); */
+                ?>
+                
+                delayColor += 750;
+
+                <?php
+                    }
+                ?>
+                
+                /* Color para Hawaii */
+                setTimeout(() => {
+                    mapObject.series.regions[1].setValues({'US-HI':1});
+                }, delayColor);
+                
+                delayColor += 750;
+
+                /* Color para Alaska */
+                setTimeout(() => {
+                    mapObject.series.regions[3].setValues({'US-AK':1});
+                }, delayColor);
+
+            });
+            /*
             let delayColor = 750;
-            
             <?php
                 /* Separacion de las regiones por su color
                     1 == rojo
@@ -156,19 +220,17 @@
             ?>
             
             /* Color para Hawaii */
-            setTimeout(() => {
+            /*setTimeout(() => {
                 mapObject.series.regions[1].setValues({'US-HI':1});
             }, delayColor);
             
-            delayColor += 750;
+            delayColor += 750;*/
 
             /* Color para Alaska */
-            setTimeout(() => {
+            /*setTimeout(() => {
                 mapObject.series.regions[3].setValues({'US-AK':1});
-            }, delayColor);
-               
-
-
+            }, delayColor);*//*
+            */
     </script>
 </body>
 </html>
