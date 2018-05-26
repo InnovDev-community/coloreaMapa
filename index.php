@@ -54,11 +54,11 @@
     </main>
 
     <script type='text/javascript'>
-            let rojos = {};
+            /* let rojos = {};
             let verdes = {};
             let azules = {};
             let amarillos = {}; 
-            let codigoColor = [];
+            let codigoColor = []; */
 
             $('#usa-map').vectorMap({
 
@@ -105,7 +105,8 @@
             });
 
             let mapObject = $('#usa-map').vectorMap('get', 'mapObject');
-
+            let delayColor = 750;
+            
             <?php
                 /* Separacion de las regiones por su color
                     1 == rojo
@@ -115,37 +116,56 @@
                  */
                 for($i=0; $i<count($arregloCodigos);$i++){
                     $aux = explode(":",$arregloCodigos[$i]);
+                   
                     if($aux[1] == 1){
             ?>
-                        mapObject.series.regions[0].setValues({"<?php echo $aux[0];?>":1});
+                        setTimeout(() => {
+                            mapObject.series.regions[0].setValues({"<?php echo $aux[0];?>":1});
+                        }, delayColor);
             <?php
                     }else{
                         if($aux[1] == 2){
             ?>
-                            mapObject.series.regions[1].setValues({"<?php echo $aux[0];?>":1});
+                            setTimeout(() => {
+                                    mapObject.series.regions[1].setValues({"<?php echo $aux[0];?>":1});
+                            }, delayColor);
             <?php
                         }else{
                             if($aux[1] == 3){
             ?>
-                                mapObject.series.regions[2].setValues({"<?php echo $aux[0];?>":1});
+                                setTimeout(() => {
+                                    mapObject.series.regions[2].setValues({"<?php echo $aux[0];?>":1});
+                                }, delayColor);
             <?php
                             }else{
             ?>
-                                mapObject.series.regions[3].setValues({"<?php echo $aux[0];?>":1});
+                                setTimeout(() => {
+                                    mapObject.series.regions[3].setValues({"<?php echo $aux[0];?>":1});
+                                }, delayColor);
             <?php
                             }
                         }
                     }
                    /*  sleep(1); */
+            ?>
+            
+            delayColor += 750;
+
+            <?php
                 }
             ?>
             
             /* Color para Hawaii */
-            verdes["US-HI"] = 1;
-            mapObject.series.regions[1].setValues({'US-HI':1});
+            setTimeout(() => {
+                mapObject.series.regions[1].setValues({'US-HI':1});
+            }, delayColor);
+            
+            delayColor += 750;
 
             /* Color para Alaska */
-            mapObject.series.regions[3].setValues({'US-AK':1});
+            setTimeout(() => {
+                mapObject.series.regions[3].setValues({'US-AK':1});
+            }, delayColor);
                
 
 
