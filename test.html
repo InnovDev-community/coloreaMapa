@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jVectorMap demo</title>
+  <link rel="stylesheet" href="css/jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-jvectormap-2.0.3.min.js"></script>
+  <script src="js/jquery-jvectormap-us-aea.js"></script>
+</head>
+<body>
+  <div id="map" style="width: 600px; height: 400px"></div>
+  <button id="changeColor">Change Color</button>
+  <script>
+      //Azul 0.9
+      //Rojo 0
+      //Verde 0.15
+      //Amarillo 11
+      var gdpData = {
+        "US-VA": 1,
+        "US-PA": 0,
+        "US-TN": 0,
+        "US-WV": 0,
+        "US-NV": 0,
+        "US-TX": 0,
+        "US-NH": 0,
+        "US-NY": 0,
+        "US-HI": 0,
+        "US-VT": 0,
+        "US-NM": 0,
+        "US-NC": 0,
+        "US-ND": 0,
+        "US-NE": 0,
+        "US-LA": 0,
+        "US-SD": 0,
+        "US-DC": 0,
+        "US-DE": 0,
+        "US-FL": 0,
+        "US-CT": 0,
+        "US-WA": 0,
+        "US-KS": 0,
+        "US-WI": 0,
+        "US-OR": 0,
+        "US-KY": 0,
+        "US-ME": 0,
+        "US-OH": 0,
+        "US-OK": 0,
+        "US-ID": 0,
+        "US-WY": 0,
+        "US-UT": 0,
+        "US-IN": 0,
+        "US-IL": 0,
+        "US-AK": 0,
+        "US-NJ": 0,
+        "US-CO": 0,
+        "US-MD": 0,
+        "US-MA": 0,
+        "US-AL": 0,
+        "US-MO": 0,
+        "US-MN": 0,
+        "US-CA": 0,
+        "US-IA": 0,
+        "US-MI": 0,
+        "US-GA": 0,
+        "US-AZ": 0,
+        "US-MT": 0,
+        "US-MS": 0,
+        "US-SC": 0,
+        "US-RI": 0,
+        "US-AR": 0
+      };
+
+      var gdpDataRed0 = {
+        "US-IA": 1,
+      }
+
+      var gdpDataGreen0 = {
+        "US-MI": 1
+      }
+
+      var gdpDataBlue0 = {
+        "US-GA": 1
+      }                  
+
+      var gdpDataRed1 = {
+        "US-IA": 1,
+        "US-AR": 1        
+      }
+
+      $('#map').vectorMap({
+        map: 'us_aea',
+        series: {
+          regions: [{
+            values: {},
+            scale: ['#FFFFFF','#FF0000']
+          },{
+            values: {},
+            scale: ['#FFFFFF','#00FF00']            
+          },{
+            values: {},
+            scale: ['#FFFFFF','#0000FF']             
+          }]
+        }
+      });
+
+      var mapObject = $('#map').vectorMap('get', 'mapObject');
+      
+      let n=0;
+
+      $("#changeColor").on("click",function(){
+        $('#map').delay(8000);
+        if(n==0)
+          mapObject.series.regions[0].setValues(gdpDataRed0);
+        else if(n==1)
+          mapObject.series.regions[1].setValues(gdpDataGreen0);
+        else if(n==2)
+          mapObject.series.regions[2].setValues(gdpDataBlue0);
+        else 
+          mapObject.series.regions[0].setValues(gdpDataRed1);
+
+        n++;
+      })
+
+      console.log(mapObject.series.regions[0]);
+
+      //mapObject.series.regions[0].setValues(data.states[ui.value]);
+      // mapObject.series.markers[0].setValues(data.metro.unemployment[ui.value]);
+      // mapObject.series.markers[1].setValues(data.metro.population[ui.value]);
+    
+  </script>
+</body>
+</html>
