@@ -27,7 +27,6 @@
         <section class="seccion">
             <article class="seccion__izq">
                 <div id="usa-map">
-
                 </div>
                 <a class="link-github icon-github" href="#">Repositorio en GitHub</a>
             </article>
@@ -91,16 +90,21 @@
                             }
                         }
                     }
+            ?>
+                    creaMapa();
+            <?php
+                   /*  sleep(1); */
                 }
             ?>
             
             /* Color para Hawaii */
             verdes["US-HI"] = 1;
-            
+            creaMapa();
+
             /* Color para Alaska */
             amarillos["US-AK"] = 0;
-
             creaMapa();
+            
                    
             function creaMapa(){
 
