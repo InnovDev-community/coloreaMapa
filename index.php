@@ -99,52 +99,57 @@
             
             /* Color para Alaska */
             amarillos["US-AK"] = 0;
-            
-            /* Creacion del mapa */
-                        
-            $('#usa-map').vectorMap({
 
-                /* Seleccion de mapa */
-                map: 'us_aea',
+            creaMapa();
+                   
+            function creaMapa(){
 
-                /* Fondo del mapa */
-                backgroundColor:['#03A9F4'],
+                /* Creacion del mapa */
+                     
+                $('#usa-map').vectorMap({
 
-                series: {
+                    /* Seleccion de mapa */
+                    map: 'us_aea',
 
-                    /* Estilo para las regiones */
-                    regions: [
-                        {
-                            /* Arreglo de regiones rojas */
-                            values: rojos, 
+                    /* Fondo del mapa */
+                    backgroundColor:['#03A9F4'],
 
-                            /* Indice de colores rojos */     
-                            scale: ['#FF0000'], 
-                        },
-                        {
-                            /* Arreglo de regiones verdes */
-                            values: verdes,
+                    series: {
 
-                            /* Indice de colores verdes */   
-                            scale: ['#00FF00'], 
-                        },
-                        {
-                            /* Arreglo de regiones azules */
-                            values: azules,
+                        /* Estilo para las regiones */
+                        regions: [
+                            {
+                                /* Arreglo de regiones rojas */
+                                values: rojos, 
 
-                            /* Indice de colores azules */    
-                            scale: ['#0000FF'], 
-                        },
-                        {
-                            /* Arreglo de regiones amarillas */
-                            values: amarillos,
+                                /* Indice de colores rojos */     
+                                scale: ['#FF0000'], 
+                            },
+                            {
+                                /* Arreglo de regiones verdes */
+                                values: verdes,
 
-                            /* Indice de colores amarillos */
-                            scale: ['#FBC02D']  
-                        }
-                    ]
-                }
-            });
+                                /* Indice de colores verdes */   
+                                scale: ['#00FF00'], 
+                            },
+                            {
+                                /* Arreglo de regiones azules */
+                                values: azules,
+
+                                /* Indice de colores azules */    
+                                scale: ['#0000FF'], 
+                            },
+                            {
+                                /* Arreglo de regiones amarillas */
+                                values: amarillos,
+
+                                /* Indice de colores amarillos */
+                                scale: ['#FBC02D']  
+                            }
+                        ]
+                    }
+                });
+            }
         });
     </script>
 </body>
