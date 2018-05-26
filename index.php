@@ -55,18 +55,79 @@
     </main>
 
 
-    <script type='text/javascript'>
+<!--     <script type='text/javascript'>
         let codigoColor = [];
         <?php
-            for($i=0; $i<count($arregloCodigos);$i++){
-                $aux = explode(":",$arregloCodigos[$i]);
-        ?>      codigoColor.push(['<?php echo $aux[0];?>', <?php echo $aux[1];?>]);
+            /*0or($i=0; $i<count($arregloCodigos);$i++){
+                $aux = explode(":",$arregloCodigos[$i]); */
+        ?>      codigoColor.push(['<?php /*echo $aux[0];*/?>', <?php/* echo $aux[1];*/?>]);
         <?php
-            }
+            /*}*/
         ?>
         console.log(codigoColor);
-    </script>
+    </script> -->
 
-    <script src="js/vectormapa.js"></script>
+    <script type='text/javascript'>
+        $(function(){
+            let rojos = {};
+            let verdes = {};
+            let azules = {};
+            let amarillos = {}; 
+            let codigoColor = [];
+            <?php
+                for($i=0; $i<count($arregloCodigos);$i++){
+                    $aux = explode(":",$arregloCodigos[$i]);
+                    if($aux[1] == 1){
+            ?>
+                        rojos["<?php echo $aux[0];?>"] = 1;
+            <?php
+                    }else{
+                        if($aux[1] == 2){
+            ?>
+                            verdes["<?php echo $aux[0];?>"] = 1;
+            <?php
+                        }else{
+                            if($aux[1] == 3){
+            ?>
+                                azules["<?php echo $aux[0];?>"] = 1;
+            <?php
+                            }else{
+            ?>
+                                amarillos["<?php echo $aux[0];?>"] = 1;
+            <?php
+                            }
+                        }
+                    }
+                }
+            ?>
+            /* Formato */
+            
+                        
+            $('#usa-map').vectorMap({
+                map: 'us_aea',
+                backgroundColor:['#0288D1'],
+                series: {
+                    regions: [
+                        {
+                            values: rojos,
+                            scale: ['#FF0000'],
+                        },
+                        {
+                            values: verdes,
+                            scale: ['#00FF00'],
+                        },
+                        {
+                            values: azules,
+                            scale: ['#0000FF'],
+                        },
+                        {
+                            values: amarillos,
+                            scale: ['#FBC02D']
+                        }
+                    ]
+                }
+            });
+        });
+    </script>
 </body>
 </html>
