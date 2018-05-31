@@ -87,8 +87,34 @@ body{
         line-height: 1.5em;
     }
 
+    /*Mapas*/
     .app__funciones{
+        margin-top: 10px;
+    }
+    .mapa__lista{
         display: flex;
+    }
+
+    .mapa__lista__item{
+        text-decoration: none;
+        display: block;
+        color: var(--amarillo);
+        font-weight: 600;
+        margin-right: 10px;
+        padding: 5px;
+        border-radius: 3.5px;
+        border: dashed 1px var(--amarillo);
+        transition: all .18s;
+    }
+
+    .mapa__lista__item:hover{
+        background: var(--amarillo);
+        color: var(--amarillo-oscuro);
+    }
+    
+    .mapa__lista__item__active{
+        background: var(--amarillo);
+        color: var(--amarillo-oscuro);
     }
 
     #btnBuscarSolucion{
