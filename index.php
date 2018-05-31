@@ -1,6 +1,9 @@
 <?php
     require_once('prologQuery.php');
-    $arregloCodigos = prologQuery();
+    $arregloCodigos = $arregloCodigosUSA = prologQuery('usa');
+    $arregloCodigosSA = prologQuery('sa');
+    $arregloCodigosGER = prologQuery('germany');
+    $arregloCodigosPO = prologQuery('poland');
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +66,7 @@
                             <button class="btnBuscarSolucion" id="btnBuscarSolucionGER">Buscar solución GER</button>
                         </div>
                         <div id="appPoland" class="mapa__contenido">
-                            <button class="btnBuscarSolucion" id="btnBuscarSolucionGER">Buscar solución POL</button>
+                            <button class="btnBuscarSolucion" id="btnBuscarSolucionPO">Buscar solución POL</button>
                         </div>
                     </div>
                 </div>
@@ -137,7 +140,19 @@
         //Mapa - Funciones
         //let mapObject = $('#map').vectorMap('get', 'mapObject');
 
-        $('#btnBuscarSolucion').click(function(){
+
+        /* function pintar(mapObject){
+
+        } */
+
+        $('#btnBuscarSolucionUSA').click(function(){
+            let mapObjectUSA = $('#usaMap').vectorMap('get', 'mapObject');
+
+            let mapObject = mapObjectUSA;
+            <?php
+                $arregloCodigos = $arregloCodigosUSA;
+            ?>
+
             let delayColor = 750;
             <?php
                 /* Separacion de las regiones por su color
@@ -188,20 +203,197 @@
             
             /* Color para Hawaii */
             setTimeout(() => {
-                mapObject.series.regions[1].setValues({'US-HI':1});
+                mapObjectUSA.series.regions[1].setValues({'US-HI':1});
             }, delayColor);
             
             delayColor += 750;
 
             /* Color para Alaska */
             setTimeout(() => {
-                mapObject.series.regions[3].setValues({'US-AK':1});
+                mapObjectUSA.series.regions[3].setValues({'US-AK':1});
             }, delayColor);
 
-        });      
+        });
+
+        $('#btnBuscarSolucionSA').click(function(){
+            let mapObjectSA = $('#saMap').vectorMap('get', 'mapObject');
+            let mapObject = mapObjectSA;
+            <?php
+                $arregloCodigos = $arregloCodigosSA;
+            ?>
+
+            let delayColor = 750;
+            <?php
+                /* Separacion de las regiones por su color
+                    1 == rojo
+                    2 == verde
+                    3 == azul
+                    4 == amarillo
+                */
+                for($i=0; $i<count($arregloCodigos);$i++){
+                    $aux = explode(":",$arregloCodigos[$i]);
+                
+                    if($aux[1] == 1){
+            ?>
+                        setTimeout(() => {
+                            mapObject.series.regions[0].setValues({"<?php echo $aux[0];?>":1});
+                        }, delayColor);
+            <?php
+                    }else{
+                        if($aux[1] == 2){
+            ?>
+                            setTimeout(() => {
+                                    mapObject.series.regions[1].setValues({"<?php echo $aux[0];?>":1});
+                            }, delayColor);
+            <?php
+                        }else{
+                            if($aux[1] == 3){
+            ?>
+                                setTimeout(() => {
+                                    mapObject.series.regions[2].setValues({"<?php echo $aux[0];?>":1});
+                                }, delayColor);
+            <?php
+                            }else{
+            ?>
+                                setTimeout(() => {
+                                    mapObject.series.regions[3].setValues({"<?php echo $aux[0];?>":1});
+                                }, delayColor);
+            <?php
+                            }
+                        }
+                    }
+            ?>
+            
+            delayColor += 750;
+
+            <?php
+                }
+            ?>
+            
+            /* Color para Islas Malvinas */
+            setTimeout(() => {
+                mapObjectSA.series.regions[1].setValues({'FK':1});
+            }, delayColor);
+
+        });
+
+        $('#btnBuscarSolucionGER').click(function(){
+            let mapObjectGER = $('#gerMap').vectorMap('get', 'mapObject');
+            let mapObject = mapObjectGER;
+            <?php
+                $arregloCodigos = $arregloCodigosGER;
+            ?>
+
+            let delayColor = 750;
+            <?php
+                /* Separacion de las regiones por su color
+                    1 == rojo
+                    2 == verde
+                    3 == azul
+                    4 == amarillo
+                */
+                for($i=0; $i<count($arregloCodigos);$i++){
+                    $aux = explode(":",$arregloCodigos[$i]);
+                
+                    if($aux[1] == 1){
+            ?>
+                        setTimeout(() => {
+                            mapObject.series.regions[0].setValues({"<?php echo $aux[0];?>":1});
+                        }, delayColor);
+            <?php
+                    }else{
+                        if($aux[1] == 2){
+            ?>
+                            setTimeout(() => {
+                                    mapObject.series.regions[1].setValues({"<?php echo $aux[0];?>":1});
+                            }, delayColor);
+            <?php
+                        }else{
+                            if($aux[1] == 3){
+            ?>
+                                setTimeout(() => {
+                                    mapObject.series.regions[2].setValues({"<?php echo $aux[0];?>":1});
+                                }, delayColor);
+            <?php
+                            }else{
+            ?>
+                                setTimeout(() => {
+                                    mapObject.series.regions[3].setValues({"<?php echo $aux[0];?>":1});
+                                }, delayColor);
+            <?php
+                            }
+                        }
+                    }
+            ?>
+            
+            delayColor += 750;
+
+            <?php
+                }
+            ?>
+
+        });
+
+        $('#btnBuscarSolucionPO').click(function(){
+            let mapObjectPO = $('#polMap').vectorMap('get', 'mapObject');
+            let mapObject = mapObjectPO;
+            <?php
+                $arregloCodigos = $arregloCodigosPO;
+            ?>
+
+            let delayColor = 750;
+            <?php
+                /* Separacion de las regiones por su color
+                    1 == rojo
+                    2 == verde
+                    3 == azul
+                    4 == amarillo
+                */
+                for($i=0; $i<count($arregloCodigos);$i++){
+                    $aux = explode(":",$arregloCodigos[$i]);
+                
+                    if($aux[1] == 1){
+            ?>
+                        setTimeout(() => {
+                            mapObject.series.regions[0].setValues({"<?php echo $aux[0];?>":1});
+                        }, delayColor);
+            <?php
+                    }else{
+                        if($aux[1] == 2){
+            ?>
+                            setTimeout(() => {
+                                    mapObject.series.regions[1].setValues({"<?php echo $aux[0];?>":1});
+                            }, delayColor);
+            <?php
+                        }else{
+                            if($aux[1] == 3){
+            ?>
+                                setTimeout(() => {
+                                    mapObject.series.regions[2].setValues({"<?php echo $aux[0];?>":1});
+                                }, delayColor);
+            <?php
+                            }else{
+            ?>
+                                setTimeout(() => {
+                                    mapObject.series.regions[3].setValues({"<?php echo $aux[0];?>":1});
+                                }, delayColor);
+            <?php
+                            }
+                        }
+                    }
+            ?>
+            
+            delayColor += 750;
+
+            <?php
+                }
+            ?>
+
+        });
+
+
         
         function loadMap(mapa){
-            console.log(mapa)
             switch(mapa){
                 case "usa":
                     $('#usaMap').vectorMap({

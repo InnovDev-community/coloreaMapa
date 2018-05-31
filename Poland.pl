@@ -24,6 +24,7 @@ vecino(kuyavianpomeranian,masovian).
 vecino(warmianmasurian,masovian).
 vecino(warmianmasurian,podlachian).
 vecino(podlachian,masovian).
+vecino(podlachian,lublin).
 vecino(masovian,lublin).
 vecino(masovian,swietokrzyskie).
 vecino(swietokrzyskie,lublin).

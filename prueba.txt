@@ -6,6 +6,9 @@ solution([washington/US_WA,oregon/US_OR,california/US_CA,nevada/US_NV,idaho/US_I
 
 solution([ecuador/EC,peru/PE,colombia/CO,venezuela/VE,guyana/GY,surinam/SR,brasil/BR,bolivia/BO,chile/CL,paraguay/PY,argentina/AR,uruguay/UY]).
 
+/* Prueba South Germany */
+solution([berlin/DE_BE,sachsenanhalt/DE_ST,rheinlandpfalz/DE_RP,brandenburg/DE_BB,niedersachsen/DE_NI,mecklenburgvorpommern/DE_MV,thuringen/DE_TH,badenwurttemberg/DE_BW,hamburg/DE_HH,schleswigholstein/DE_SH,nordrheinwestfalen/DE_NW,sachsen/DE_SN,bremen/DE_HB,saarland/DE_SL,bayern/DE_BY,hessen/DE_HE]).
+
 /* Prueba Poland */
 
 solution([westpomeranian/PL_ZP,pomeranian/PL_PM,greaterpoland/PL_WP,lubusz/PL_LB,lowersilesian/PL_DS,opole/PL_OP,silesian/PL_SL,lodz/PL_LD,kuyavianpomeranian/PL_KP,warmianmasurian/PL_WN,podlachian/PL_PD,masovian/PL_MZ,swietokrzyskie/PL_SK,lesserpoland/PL_MA,subcarpathian/PL_PK,lublin/PL_LU]).
