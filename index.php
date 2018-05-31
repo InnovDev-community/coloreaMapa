@@ -19,7 +19,8 @@
     <!-- Mapas-->
     <script src="js/jquery-jvectormap-us-aea.js"></script>
     <script src="js/jquery-jvectormap-south_america-mill.js"></script>
-    
+    <script src="js/jquery-jvectormap-pl-mill.js"></script>
+
     <link rel="stylesheet" href="css/jquery-jvectormap-2.0.3.css">    
 </head>
 <body>

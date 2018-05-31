@@ -6,10 +6,17 @@ function prologQuery(){
 /* 
     SouthAmerica
 
-    $output = `swipl -s SouthAmerica.pl -g "solution([ecuador/EC,peru/PE,colombia/CO,venezuela/VE,guyana/GY,surinam/SR,brasil/BR,bolivia/BO,chile/CL,paraguay/PY,argentina/AR,uruguay/UY]), write('EC:'), write(EC),write(',PE:'),write(PE),write(',VE:'), write(VE),write(',GY:'), write(GY),write(',SR:'), write(SR),write(',BR:'), write(BR), write(',BO:'), write(BO), write(',CL:'), write(CL), write(',PY:'), write(PY), write(',AR:'), write(AR), write(',UY:'), write(UY)" -t halt.`
+    $output = `swipl -s SouthAmerica.pl -g "solution([ecuador/EC,peru/PE,colombia/CO,venezuela/VE,guyana/GY,surinam/SR,brasil/BR,bolivia/BO,chile/CL,paraguay/PY,argentina/AR,uruguay/UY]), write('EC:'), write(EC),write(',PE:'),write(PE),write(',VE:'), write(VE),write(',GY:'), write(GY),write(',SR:'), write(SR),write(',BR:'), write(BR), write(',BO:'), write(BO), write(',CL:'), write(CL), write(',PY:'), write(PY), write(',AR:'), write(AR), write(',UY:'), write(UY)." -t halt.`
 
  */
 
+
+ /* 
+    Poland
+
+$output = `swipl -s SouthAmerica.pl -g "solution([westpomeranian/PL_ZP,pomeranian/PL_PM,greaterpoland/PL_WP,lubusz/PL_LB,lowersilesian/PL_DS,opole/PL_OP,silesian/PL_SL,lodz/PL_LD,kuyavianpomeranian/PL_KP,warmianmasurian/PL_WN,podlachian/PL_PD,masovian/PL_MZ,swietokrzyskie/PL_SK,lesserpoland/PL_MA,subcarpathian/PL_PK,lublin/PL_LU]), write('PL-ZP:'),write(PL_ZP),write(',PL-PM:'),write(PL_PM),write(',PL-WP:'),write(PL_WP),write(',PL-LB:'),write(PL_LB),write(',PL-DS:'),write(PL_DS),write(',PL-OP:'),write(PL_OP),write(',PL-SL:'),write(PL_SL),write(',PL-LD:'),write(PL_LD),write(',PL-KP:'),write(PL_KP),write(',PL-WN:'),write(PL_WN),write(',PL-PD:'),write(PL_PD),write(',PL-MZ:'),write(PL_MZ),write(',PL-SK:'),write(PL_SK),write(',PL-MA:'),write(PL_MA),write(',PL-PK:'),write(PL_PK),write(',PL-LU:'),write(PL_LU)." -t halt.`
+ 
+ */
 
 
 
