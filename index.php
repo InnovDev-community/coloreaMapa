@@ -47,13 +47,13 @@
                     </ul>
                     <div class="mapa__contenidos">
                         <div id="appUsaMap" class="mapa__contenido">
-                            <button id="btnBuscarSolucionUSA">Buscar solución USA</button>
+                            <button class="btnBuscarSolucion" id="btnBuscarSolucionUSA">Buscar solución USA</button>
                         </div>
                         <div id="appSouthAmerica" class="mapa__contenido">
-                            <button id="btnBuscarSolucionSA">Buscar solución SA</button>
+                            <button class="btnBuscarSolucion" id="btnBuscarSolucionSA">Buscar solución SA</button>
                         </div>
                         <div id="appGermany" class="mapa__contenido">
-                            <button id="btnBuscarSolucionGER">Buscar solución GER</button>
+                            <button class="btnBuscarSolucion" id="btnBuscarSolucionGER">Buscar solución GER</button>
                         </div>
                     </div>
                 </div>

@@ -117,7 +117,7 @@ body{
         color: var(--amarillo-oscuro);
     }
 
-    #btnBuscarSolucion{
+    .btnBuscarSolucion{
         cursor: pointer;
         margin-top: 20px;
         background: var(--amarillo);
