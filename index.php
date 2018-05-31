@@ -46,9 +46,6 @@
                 <p class="app__descripcion">El teorema de los cuatro colores consiste básicamente, en que cualquier mapa puede ser coloreado solamente con cuatro colores distintos de tal manera que dos regiones adyacentes (es decir, que tienen una frontera en común y no sólo un punto) no tengan el mismo color. 
                 Aunque parece un problema no matemático, sin embargo lo es y su demostración no es nada sencilla, ha costado mucho esfuerzo y 125 años el conseguirlo.</p>
                 <div class="app__funciones">
-<<<<<<< HEAD
-                    <button id="btnBuscarSolucion">Buscar solución</button>
-=======
                     <ul class="mapa__lista">    
                         <a class="mapa__lista__item" href="appUsa">USA</a>
                         <a class="mapa__lista__item" href="appSouthAmerica">South America</a>
@@ -69,7 +66,6 @@
                             <button class="btnBuscarSolucion" id="btnBuscarSolucionGER">Buscar solución POL</button>
                         </div>
                     </div>
->>>>>>> origin/master
                 </div>
                 <ul class="app__autores">
                     <li class="app__autores__item">Panana Rosales, <span>Andy Martín.</span></li>
@@ -89,116 +85,6 @@
 
     <script type='text/javascript'>
 
-<<<<<<< HEAD
-            $('#usa-map').vectorMap({
-
-                /* Seleccion de mapa */
-                map: 'us_aea',
-
-                /* Fondo del mapa */
-                backgroundColor:['#03A9F4'],
-
-                series: {
-
-                    /* Estilo para las regiones */
-                    regions: [
-                        {
-                            /* Arreglo de regiones rojas */
-                            values: {}, 
-
-                            /* Indice de colores rojos */     
-                            scale: ['#FF0000'], 
-                        },
-                        {
-                            /* Arreglo de regiones verdes */
-                            values: {},
-
-                            /* Indice de colores verdes */   
-                            scale: ['#00FF00'], 
-                        },
-                        {
-                            /* Arreglo de regiones azules */
-                            values: {},
-
-                            /* Indice de colores azules */    
-                            scale: ['#0000FF'], 
-                        },
-                        {
-                            /* Arreglo de regiones amarillas */
-                            values: {},
-
-                            /* Indice de colores amarillos */
-                            scale: ['#FBC02D']  
-                        }
-                    ]
-                }
-            });
-
-            let mapObject = $('#usa-map').vectorMap('get', 'mapObject');
-
-            $('#btnBuscarSolucion').click(function(){
-                let delayColor = 750;
-                <?php
-                    /* Separacion de las regiones por su color
-                        1 == rojo
-                        2 == verde
-                        3 == azul
-                        4 == amarillo
-                    */
-                    for($i=0; $i<count($arregloCodigos);$i++){
-                        $aux = explode(":",$arregloCodigos[$i]);
-                    
-                        if($aux[1] == 1){
-                ?>
-                            setTimeout(() => {
-                                mapObject.series.regions[0].setValues({"<?php echo $aux[0];?>":1});
-                            }, delayColor);
-                <?php
-                        }else{
-                            if($aux[1] == 2){
-                ?>
-                                setTimeout(() => {
-                                        mapObject.series.regions[1].setValues({"<?php echo $aux[0];?>":1});
-                                }, delayColor);
-                <?php
-                            }else{
-                                if($aux[1] == 3){
-                ?>
-                                    setTimeout(() => {
-                                        mapObject.series.regions[2].setValues({"<?php echo $aux[0];?>":1});
-                                    }, delayColor);
-                <?php
-                                }else{
-                ?>
-                                    setTimeout(() => {
-                                        mapObject.series.regions[3].setValues({"<?php echo $aux[0];?>":1});
-                                    }, delayColor);
-                <?php
-                                }
-                            }
-                        }
-                ?>
-                
-                delayColor += 750;
-
-                <?php
-                    }
-                ?>
-                
-                /* Color para Hawaii */
-                setTimeout(() => {
-                    mapObject.series.regions[1].setValues({'US-HI':1});
-                }, delayColor);
-                
-                delayColor += 750;
-
-                /* Color para Alaska */
-                setTimeout(() => {
-                    mapObject.series.regions[3].setValues({'US-AK':1});
-                }, delayColor);
-
-            });
-=======
         //Cargar todos los mapas y ocultarlos.
         loadMap("usa");
         loadMap("sa");
@@ -499,7 +385,6 @@
             }
             //Mapa
         }  
->>>>>>> origin/master
         
     </script>
 </body>
