@@ -40,22 +40,7 @@
                 <p class="app__descripcion">El teorema de los cuatro colores consiste básicamente, en que cualquier mapa puede ser coloreado solamente con cuatro colores distintos de tal manera que dos regiones adyacentes (es decir, que tienen una frontera en común y no sólo un punto) no tengan el mismo color. 
                 Aunque parece un problema no matemático, sin embargo lo es y su demostración no es nada sencilla, ha costado mucho esfuerzo y 125 años el conseguirlo.</p>
                 <div class="app__funciones">
-                    <ul class="mapa__lista">    
-                        <a class="mapa__lista__item" href="appUsaMap">USA</a>
-                        <a class="mapa__lista__item" href="appSouthAmerica">South America</a>
-                        <a class="mapa__lista__item" href="appGermany">Germany</a>
-                    </ul>
-                    <div class="mapa__contenidos">
-                        <div id="appUsaMap" class="mapa__contenido">
-                            <button class="btnBuscarSolucion" id="btnBuscarSolucionUSA">Buscar solución USA</button>
-                        </div>
-                        <div id="appSouthAmerica" class="mapa__contenido">
-                            <button class="btnBuscarSolucion" id="btnBuscarSolucionSA">Buscar solución SA</button>
-                        </div>
-                        <div id="appGermany" class="mapa__contenido">
-                            <button class="btnBuscarSolucion" id="btnBuscarSolucionGER">Buscar solución GER</button>
-                        </div>
-                    </div>
+                    <button id="btnBuscarSolucion">Buscar solución</button>
                 </div>
                 <ul class="app__autores">
                     <li class="app__autores__item">Panana Rosales, <span>Andy Martín.</span></li>
@@ -184,29 +169,6 @@
 
             });
         
-    </script>
-
-    <script>
-        $(".mapa__contenido").hide(); //Ocultar todos las funciones de los mapas
-
-        //Activo el primer ITEM
-        $(".mapa__lista__item:first-child").addClass("mapa__lista__item__active");
-        $(".mapa__contenido:first-child").fadeIn(); 
-
-        //Change mapas
-        $(".mapa__lista__item").on("click",function(e){
-            e.preventDefault();
-            //Reinicio todo
-            $(".mapa__lista__item").removeClass("mapa__lista__item__active");
-            $(".mapa__contenido").hide()
-            
-            //ID
-            let idMapa = $(this).attr("href");
-
-            $("#"+idMapa).fadeIn();
-            $(this).addClass("mapa__lista__item__active");
-        })
-
     </script>
 </body>
 </html>
