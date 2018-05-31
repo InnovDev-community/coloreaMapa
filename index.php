@@ -250,7 +250,7 @@
                 case "sa":
                     $('#saMap').vectorMap({
                         /* Seleccion de mapa */
-                        map: 'us_aea',
+                        map: 'south_america_mill',
 
                         /* Fondo del mapa */
                         backgroundColor:['#03A9F4'],
@@ -340,7 +340,7 @@
                 case "pol":
                     $('#polMap').vectorMap({
                         /* Seleccion de mapa */
-                        map: 'us_aea',
+                        map: 'pl_mill',
 
                         /* Fondo del mapa */
                         backgroundColor:['#03A9F4'],
