@@ -1,1 +1,4 @@
 solution([washington/US_WA,oregon/US_OR,california/US_CA,nevada/US_NV,idaho/US_ID,utah/US_UT,arizona/US_AZ,montana/US_MT,wyoming/US_WY,colorado/US_CO,newmexico/US_NM,northdakota/US_ND,southdakota/US_SD,nebraska/US_NE,kansas/US_KS,oklahoma/US_OK,texas/US_TX,minnesota/US_MN,iowa/US_IA,missouri/US_MO,arkansas/US_AR,louisiana/US_LA,wisconsin/US_WI,illinois/US_IL,mississippi/US_MS,alabama/US_AL,florida/US_FL,georgia/US_GA,southcarolina/US_SC,tenesse/US_TN,northcarolina/US_NC,kentucky/US_KY,indiana/US_IN,michigan/US_MI,ohio/US_OH,westvirginia/US_WV,virginia/US_VA,maryland/US_MD,pennsylvania/US_PA,delaware/US_DE,newjersey/US_NJ,newyork/US_NY,connecticut/US_CT,rhodeisland/US_RI,massachusetts/US_MA,vermont/US_VT,newhampshire/US_NH,maine/US_ME]).
+
+
+solution([ecuador/EC,peru/PE,colombia/CO,venezuela/VE,guyana/GY,surinam/SR,brasil/BR,bolivia/BO,chile/CL,paraguay/PY,argentina/AR,uruguay/UY]).

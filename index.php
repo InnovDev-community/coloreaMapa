@@ -15,7 +15,11 @@
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-jvectormap-2.0.3.min.js"></script>
+    
+    <!-- Mapas-->
     <script src="js/jquery-jvectormap-us-aea.js"></script>
+    <script src="js/jquery-jvectormap-south_america-mill.js"></script>
+    
     <link rel="stylesheet" href="css/jquery-jvectormap-2.0.3.css">    
 </head>
 <body>
@@ -142,7 +146,6 @@
                                 }
                             }
                         }
-                    /*  sleep(1); */
                 ?>
                 
                 delayColor += 750;
