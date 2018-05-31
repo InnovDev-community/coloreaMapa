@@ -18,7 +18,12 @@ $output = `swipl -s SouthAmerica.pl -g "solution([westpomeranian/PL_ZP,pomerania
  
  */
 
+ /* 
+    Germany
 
+$output = `swipl -s Germany.pl -g "solution([berlin/DE_BE,sachsenanhalt/DE_ST,rheinlandpfalz/DE_RP,brandenburg/DE_BB,niedersachsen/DE_NI,mecklenburgvorpommern/DE_MV,thuringen/DE_TH,badenwurttemberg/DE_BW,hamburg/DE_HH,schleswigholstein/DE_SH,nordrheinwestfalen/DE_NW,sachsen/DE_SN,bremen/DE_HB,saarland/DE_SL,bayern/DE_BY,hessen/DE_HE]), write('DE-SH:'), write(DE_SH),write('DE-MV:'),write(DE_MV),write('DE-HH:'),write(DE_HH),write('DE-NI:'),write(DE_NI),write('DE-HB:'),write(DE_HB),write('DE-ST:'),write(DE_ST),write('DE-BB:'),write(DE_BB),write('DE-BE:'),write(DE_BE),write('DE-NW:'),write(DE_NW),write('DE-HE:'),write(DE_HE),write('DE-TH:'),write(DE_TH),write('DE-SN:'),write(DE_SN),write('DE-RP:'),write(DE_RP),write('DE-SL:'),write(DE_SL),write('DE-BW:'),write(DE_BW),write('DE-BY:'),write(DE_BY)." -t halt.`
+ 
+ */
 
     $codigos = explode(",",$output);
 
