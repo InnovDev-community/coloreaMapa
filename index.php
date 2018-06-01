@@ -141,71 +141,92 @@
             
         })
 
-        //Mapa - Funciones
-        //let mapObject = $('#map').vectorMap('get', 'mapObject');
 
+        let codigosUSA=[];
+        let codigosSA=[];
+        let codigosGER=[];
+        let codigosPO=[];
 
-        /* function pintar(mapObject){
+        <?php
+            require_once('prologQuery.php');
+            $arregloCodigosUSA = prologQuery('usa');
+            $arregloCodigosSA = prologQuery('sa');
+            $arregloCodigosGER = prologQuery('germany');
+            $arregloCodigosPO = prologQuery('poland');
 
-        } */
+            for($i=0; $i<count($arregloCodigosUSA);$i++){
+                $var = explode(":",$arregloCodigosUSA[$i]);
+        ?>      codigosUSA.push('{"<?php echo $var[0] ?>":<?php echo $var[1] ?>}');
+        <?php
+            }
+            for($i=0; $i<count($arregloCodigosSA);$i++){
+                $var = explode(":",$arregloCodigosSA[$i]);
+        ?>      codigosSA.push('{"<?php echo $var[0] ?>":<?php echo $var[1] ?>}');
+        <?php
+            }
+            for($i=0; $i<count($arregloCodigosGER);$i++){
+                $var = explode(":",$arregloCodigosGER[$i]);
+        ?>      codigosGER.push('{"<?php echo $var[0] ?>":<?php echo $var[1] ?>}');
+        <?php
+            }
+            for($i=0; $i<count($arregloCodigosPO);$i++){
+                $var = explode(":",$arregloCodigosPO[$i]);
+        ?>      codigosPO.push('{"<?php echo $var[0] ?>":<?php echo $var[1] ?>}');
+        <?php
+            }
+        ?>
 
-        //Funciones de BUSCAR SOLUCION
-        
-        $('#btnBuscarSolucionUSA').click(function(){
-            let mapObjectUSA = $('#usaMap').vectorMap('get', 'mapObject');
-
-            let mapObject = mapObjectUSA;
-            <?php
-                $arregloCodigos = $arregloCodigosUSA;
-            ?>
-
+        function colorear(mapObject, arregloCodigos){
             let delayColor = 750;
-            <?php
-                /* Separacion de las regiones por su color
-                    1 == rojo
-                    2 == verde
-                    3 == azul
-                    4 == amarillo
-                */
-                for($i=0; $i<count($arregloCodigos);$i++){
-                    $aux = explode(":",$arregloCodigos[$i]);
+            /* Separacion de las regiones por su color
+                1 == rojo
+                2 == verde
+                3 == azul
+                4 == amarillo
+            */
+            /* let auxiliarObjeto;  */
+           
+
+           /* console.log(arregloCodigos); */
+
+            for(let i=0; i<arregloCodigos.length ;i++){
+
+                let auxiliarObjeto = JSON.parse(arregloCodigos[i]);
                 
-                    if($aux[1] == 1){
-            ?>
+                let auxiliarColor = arregloCodigos[i].charAt(arregloCodigos[i].length-2);
+
+                 if(auxiliarColor == 1){
+                    setTimeout(() => { 
+                        mapObject.series.regions[0].setValues(auxiliarObjeto);
+                    }, delayColor); 
+                }else{
+                    if(auxiliarColor == 2){
                         setTimeout(() => {
-                            mapObject.series.regions[0].setValues({"<?php echo $aux[0];?>":1});
+                                mapObject.series.regions[1].setValues(auxiliarObjeto);
                         }, delayColor);
-            <?php
                     }else{
-                        if($aux[1] == 2){
-            ?>
+                        if(auxiliarColor == 3){
                             setTimeout(() => {
-                                    mapObject.series.regions[1].setValues({"<?php echo $aux[0];?>":1});
+                                mapObject.series.regions[2].setValues(auxiliarObjeto);
                             }, delayColor);
-            <?php
                         }else{
-                            if($aux[1] == 3){
-            ?>
-                                setTimeout(() => {
-                                    mapObject.series.regions[2].setValues({"<?php echo $aux[0];?>":1});
-                                }, delayColor);
-            <?php
-                            }else{
-            ?>
-                                setTimeout(() => {
-                                    mapObject.series.regions[3].setValues({"<?php echo $aux[0];?>":1});
-                                }, delayColor);
-            <?php
-                            }
+                            setTimeout(() => {
+                                mapObject.series.regions[3].setValues(auxiliarObjeto);
+                            }, delayColor);
                         }
                     }
-            ?>
-            
-            delayColor += 750;
+                } 
+                
+                delayColor += 750;
+            }
 
-            <?php
-                }
-            ?>
+            /* console.log(mapObject.series); */
+            return delayColor;
+        }
+
+        $('#btnBuscarSolucionUSA').click(function(){
+            let mapObjectUSA = $('#usaMap').vectorMap('get', 'mapObject');
+            let delayColor = colorear(mapObjectUSA,codigosUSA);
             
             /* Color para Hawaii */
             setTimeout(() => {
@@ -223,179 +244,24 @@
 
         $('#btnBuscarSolucionSA').click(function(){
             let mapObjectSA = $('#saMap').vectorMap('get', 'mapObject');
-            let mapObject = mapObjectSA;
-            <?php
-                $arregloCodigos = $arregloCodigosSA;
-            ?>
-
-            let delayColor = 750;
-            <?php
-                /* Separacion de las regiones por su color
-                    1 == rojo
-                    2 == verde
-                    3 == azul
-                    4 == amarillo
-                */
-                for($i=0; $i<count($arregloCodigos);$i++){
-                    $aux = explode(":",$arregloCodigos[$i]);
-                
-                    if($aux[1] == 1){
-            ?>
-                        setTimeout(() => {
-                            mapObject.series.regions[0].setValues({"<?php echo $aux[0];?>":1});
-                        }, delayColor);
-            <?php
-                    }else{
-                        if($aux[1] == 2){
-            ?>
-                            setTimeout(() => {
-                                    mapObject.series.regions[1].setValues({"<?php echo $aux[0];?>":1});
-                            }, delayColor);
-            <?php
-                        }else{
-                            if($aux[1] == 3){
-            ?>
-                                setTimeout(() => {
-                                    mapObject.series.regions[2].setValues({"<?php echo $aux[0];?>":1});
-                                }, delayColor);
-            <?php
-                            }else{
-            ?>
-                                setTimeout(() => {
-                                    mapObject.series.regions[3].setValues({"<?php echo $aux[0];?>":1});
-                                }, delayColor);
-            <?php
-                            }
-                        }
-                    }
-            ?>
-            
-            delayColor += 750;
-
-            <?php
-                }
-            ?>
-            
+            let delayColor = colorear(mapObjectSA,codigosSA);
             /* Color para Islas Malvinas */
             setTimeout(() => {
                 mapObjectSA.series.regions[1].setValues({'FK':1});
             }, delayColor);
-
         });
 
         $('#btnBuscarSolucionGER').click(function(){
             let mapObjectGER = $('#gerMap').vectorMap('get', 'mapObject');
-            let mapObject = mapObjectGER;
-            <?php
-                $arregloCodigos = $arregloCodigosGER;
-            ?>
-
-            let delayColor = 750;
-            <?php
-                /* Separacion de las regiones por su color
-                    1 == rojo
-                    2 == verde
-                    3 == azul
-                    4 == amarillo
-                */
-                for($i=0; $i<count($arregloCodigos);$i++){
-                    $aux = explode(":",$arregloCodigos[$i]);
-                
-                    if($aux[1] == 1){
-            ?>
-                        setTimeout(() => {
-                            mapObject.series.regions[0].setValues({"<?php echo $aux[0];?>":1});
-                        }, delayColor);
-            <?php
-                    }else{
-                        if($aux[1] == 2){
-            ?>
-                            setTimeout(() => {
-                                    mapObject.series.regions[1].setValues({"<?php echo $aux[0];?>":1});
-                            }, delayColor);
-            <?php
-                        }else{
-                            if($aux[1] == 3){
-            ?>
-                                setTimeout(() => {
-                                    mapObject.series.regions[2].setValues({"<?php echo $aux[0];?>":1});
-                                }, delayColor);
-            <?php
-                            }else{
-            ?>
-                                setTimeout(() => {
-                                    mapObject.series.regions[3].setValues({"<?php echo $aux[0];?>":1});
-                                }, delayColor);
-            <?php
-                            }
-                        }
-                    }
-            ?>
-            
-            delayColor += 750;
-
-            <?php
-                }
-            ?>
-
+            let delayColor = colorear(mapObjectGER,codigosGER);
         });
 
         $('#btnBuscarSolucionPOL').click(function(){
             let mapObjectPO = $('#polMap').vectorMap('get', 'mapObject');
-            let mapObject = mapObjectPO;
-            <?php
-                $arregloCodigos = $arregloCodigosPO;
-            ?>
-
-            let delayColor = 750;
-            <?php
-                /* Separacion de las regiones por su color
-                    1 == rojo
-                    2 == verde
-                    3 == azul
-                    4 == amarillo
-                */
-                for($i=0; $i<count($arregloCodigos);$i++){
-                    $aux = explode(":",$arregloCodigos[$i]);
-                
-                    if($aux[1] == 1){
-            ?>
-                        setTimeout(() => {
-                            mapObject.series.regions[0].setValues({"<?php echo $aux[0];?>":1});
-                        }, delayColor);
-            <?php
-                    }else{
-                        if($aux[1] == 2){
-            ?>
-                            setTimeout(() => {
-                                    mapObject.series.regions[1].setValues({"<?php echo $aux[0];?>":1});
-                            }, delayColor);
-            <?php
-                        }else{
-                            if($aux[1] == 3){
-            ?>
-                                setTimeout(() => {
-                                    mapObject.series.regions[2].setValues({"<?php echo $aux[0];?>":1});
-                                }, delayColor);
-            <?php
-                            }else{
-            ?>
-                                setTimeout(() => {
-                                    mapObject.series.regions[3].setValues({"<?php echo $aux[0];?>":1});
-                                }, delayColor);
-            <?php
-                            }
-                        }
-                    }
-            ?>
-            
-            delayColor += 750;
-
-            <?php
-                }
-            ?>
-
+            let delayColor = colorear(mapObjectPO,codigosPO);
         });
+
+
 
         //Funciones de LIMPIAR MAPAS    
         //gdpMapas - USA- SA - GER -POL

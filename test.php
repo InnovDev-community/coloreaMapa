@@ -13,7 +13,7 @@
     
     <!-- Mapas-->
     <!-- <script src="js/jquery-jvectormap-us-aea.js"></script> -->
-    <script src="js/jqueryusprueba.js"></script>
+    <script src="js/jquery-jvectormap-us-aea.js"></script>
     <script src="js/jquery-jvectormap-de-mill.js"></script>
     <script src="js/jquery-jvectormap-south_america-mill.js"></script>
     <script src="js/jquery-jvectormap-pl-mill.js"></script>
@@ -144,22 +144,22 @@
 
             for($i=0; $i<count($arregloCodigosUSA);$i++){
                 $var = explode(":",$arregloCodigosUSA[$i]);
-        ?>      codigosUSA.push(['<?php echo $var[0] ?>',<?php echo $var[1] ?>]);
+        ?>      codigosUSA.push('{"<?php echo $var[0] ?>":<?php echo $var[1] ?>}');
         <?php
             }
             for($i=0; $i<count($arregloCodigosSA);$i++){
                 $var = explode(":",$arregloCodigosSA[$i]);
-        ?>      codigosSA.push(['<?php echo $var[0] ?>',<?php echo $var[1] ?>]);
+        ?>      codigosSA.push('{"<?php echo $var[0] ?>":<?php echo $var[1] ?>}');
         <?php
             }
             for($i=0; $i<count($arregloCodigosGER);$i++){
                 $var = explode(":",$arregloCodigosGER[$i]);
-        ?>      codigosGER.push(['<?php echo $var[0] ?>',<?php echo $var[1] ?>]);
+        ?>      codigosGER.push('{"<?php echo $var[0] ?>":<?php echo $var[1] ?>}');
         <?php
             }
             for($i=0; $i<count($arregloCodigosPO);$i++){
                 $var = explode(":",$arregloCodigosPO[$i]);
-        ?>      codigosPO.push(['<?php echo $var[0] ?>',<?php echo $var[1] ?>]);
+        ?>      codigosPO.push('{"<?php echo $var[0] ?>":<?php echo $var[1] ?>}');
         <?php
             }
         ?>
@@ -172,37 +172,35 @@
                 3 == azul
                 4 == amarillo
             */
-            let auxiliar; 
+            /* let auxiliarObjeto;  */
            
 
-           console.log(arregloCodigos);
+           /* console.log(arregloCodigos); */
 
             for(let i=0; i<arregloCodigos.length ;i++){
 
+                let auxiliarObjeto = JSON.parse(arregloCodigos[i]);
                 
+                let auxiliarColor = arregloCodigos[i].charAt(arregloCodigos[i].length-2);
 
-                /* let auxiliar = new Object(),arregloCodigos[i][0] = 1; */
-
-                console.log(auxiliar);
-
-                 if(arregloCodigos[i][1] == 1){
-                    /* setTimeout(() => { */
-                        mapObject.series.regions[0].setValues(auxiliar);
-                    /* }, delayColor); */
+                 if(auxiliarColor == 1){
+                    setTimeout(() => { 
+                        mapObject.series.regions[0].setValues(auxiliarObjeto);
+                    }, delayColor); 
                 }else{
-                    if(arregloCodigos[i][1] == 2){
-                        /* setTimeout(() => { */
-                                mapObject.series.regions[1].setValues(auxiliar);
-                        /* }, delayColor); */
+                    if(auxiliarColor == 2){
+                        setTimeout(() => {
+                                mapObject.series.regions[1].setValues(auxiliarObjeto);
+                        }, delayColor);
                     }else{
-                        if(arregloCodigos[i][1] == 3){
-                            /* setTimeout(() => { */
-                                mapObject.series.regions[2].setValues(auxiliar);
-                            /* }, delayColor); */
+                        if(auxiliarColor == 3){
+                            setTimeout(() => {
+                                mapObject.series.regions[2].setValues(auxiliarObjeto);
+                            }, delayColor);
                         }else{
-                            /* setTimeout(() => { */
-                                mapObject.series.regions[3].setValues(auxiliar);
-                            /* }, delayColor); */
+                            setTimeout(() => {
+                                mapObject.series.regions[3].setValues(auxiliarObjeto);
+                            }, delayColor);
                         }
                     }
                 } 
@@ -210,7 +208,7 @@
                 delayColor += 750;
             }
 
-            console.log(mapObject.series);
+            /* console.log(mapObject.series); */
             return delayColor;
         }
 
@@ -220,14 +218,14 @@
             
             /* Color para Hawaii */
             setTimeout(() => {
-                mapObjectUSA.series.regions[1].setValues({US_HI:1});
+                mapObjectUSA.series.regions[1].setValues({'US-HI':1});
             }, delayColor);
             
             delayColor += 750;
 
             /* Color para Alaska */
             setTimeout(() => {
-                mapObjectUSA.series.regions[3].setValues({US_AK:1});
+                mapObjectUSA.series.regions[3].setValues({'US-AK':1});
             }, delayColor);
 
         });
