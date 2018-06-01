@@ -54,6 +54,11 @@ body{
         border-radius: 20px;
     }
 
+    /*jvectormap*/
+    .jvectormap-container{
+        border-radius: 10px;
+    }
+
     .link-github{
         color: var(--verde);
         font-weight: 400;
