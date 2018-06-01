@@ -42,7 +42,7 @@
                     <div class="map" id="polMap"></div>
                 </div>
                 </div>
-                <a class="link-github icon-github" href="#">Repositorio en GitHub</a>
+                <a class="link-github icon-github" target="_blank" href="https://github.com/InnovDev-community/coloreaMapa">Repositorio en GitHub</a>
             </article>
             <article class="seccion__der">
                 <h2 class="app__title">$ DESCRIPCION</h2>
@@ -57,16 +57,20 @@
                     </ul>
                     <div class="mapa__contenidos">
                         <div id="appUsa" class="mapa__contenido">
-                            <button class="btnBuscarSolucion" id="btnBuscarSolucionUSA">Buscar solución USA</button>
+                            <button class="btnMapa" id="btnBuscarSolucionUSA">Buscar solución USA</button>
+                            <button class="btnMapa icon-refresh" id="btnClearMapaUSA">Clear</button>
                         </div>
                         <div id="appSouthAmerica" class="mapa__contenido">
-                            <button class="btnBuscarSolucion" id="btnBuscarSolucionSA">Buscar solución SA</button>
+                            <button class="btnMapa" id="btnBuscarSolucionSA">Buscar solución SA</button>
+                            <button class="btnMapa icon-refresh" id="btnClearMapaSA">Clear</button>
                         </div>
                         <div id="appGermany" class="mapa__contenido">
-                            <button class="btnBuscarSolucion" id="btnBuscarSolucionGER">Buscar solución GER</button>
+                            <button class="btnMapa" id="btnBuscarSolucionGER">Buscar solución GER</button>
+                            <button class="btnMapa icon-refresh" id="btnClearMapaGER">Clear</button>
                         </div>
                         <div id="appPoland" class="mapa__contenido">
-                            <button class="btnBuscarSolucion" id="btnBuscarSolucionPO">Buscar solución POL</button>
+                            <button class="btnMapa" id="btnBuscarSolucionPOL">Buscar solución POL</button>
+                            <button class="btnMapa icon-refresh" id="btnClearMapaPOL">Clear</button>
                         </div>
                     </div>
                 </div>
@@ -77,12 +81,12 @@
             </article>
         </section>
         <footer class="footer">
-            <a class="link-facebook icon-facebook" href="">Facebook</a>
+            <a class="link-facebook icon-facebook" target="_blank" href="https://www.facebook.com/innovdevelopers">Facebook</a>
             <div class="copyright">
                 <span> &copy; 2018 Todos los derechos reservados | </span>
-                <a href="#">innovdevelopers.com</a>
+                <a target="_blank" href="http://innovdevelopers.com/">innovdevelopers.com</a>
             </div>
-            <a class="link-youtube icon-youtube" href="">YouTube</a>
+            <a class="link-youtube icon-youtube" target="_blank" href="https://www.youtube.com/channel/UCT6AMFzuC-G0U18k_25wmDQ?view_as=subscriber">YouTube</a>
         </footer>
     </main>
 
@@ -145,6 +149,8 @@
 
         } */
 
+        //Funciones de BUSCAR SOLUCION
+        
         $('#btnBuscarSolucionUSA').click(function(){
             let mapObjectUSA = $('#usaMap').vectorMap('get', 'mapObject');
 
@@ -334,7 +340,7 @@
 
         });
 
-        $('#btnBuscarSolucionPO').click(function(){
+        $('#btnBuscarSolucionPOL').click(function(){
             let mapObjectPO = $('#polMap').vectorMap('get', 'mapObject');
             let mapObject = mapObjectPO;
             <?php
@@ -391,6 +397,136 @@
 
         });
 
+        //Funciones de LIMPIAR MAPAS    
+        //gdpMapas - USA- SA - GER -POL
+        gdpUSA={
+            'US-VA': 1,
+            'US-PA': 1,
+            'US-TN': 1,
+            'US-WV': 1,
+            'US-NV': 1,
+            'US-TX': 1,
+            'US-NH': 1,
+            'US-NY': 1,
+            'US-HI': 1,
+            'US-VT': 1,
+            'US-NM': 1,
+            'US-NC': 1,
+            'US-ND': 1,
+            'US-NE': 1,
+            'US-LA': 1,
+            'US-SD': 1,
+            'US-DC': 1,
+            'US-DE': 1,
+            'US-FL': 1,
+            'US-CT': 1,
+            'US-WA': 1,
+            'US-KS': 1,
+            'US-WI': 1,
+            'US-OR': 1,
+            'US-KY': 1,
+            'US-ME': 1,
+            'US-OH': 1,
+            'US-OK': 1,
+            'US-ID': 1,
+            'US-WY': 1,
+            'US-UT': 1,
+            'US-IN': 1,
+            'US-IL': 1,
+            'US-AK': 1,
+            'US-NJ': 1,
+            'US-CO': 1,
+            'US-MD': 1,
+            'US-MA': 1,
+            'US-AL': 1,
+            'US-MO': 1,
+            'US-MN': 1,
+            'US-CA': 1,
+            'US-IA': 1,
+            'US-MI': 1,
+            'US-GA': 1,
+            'US-AZ': 1,
+            'US-MT': 1,
+            'US-MS': 1,
+            'US-SC': 1,
+            'US-RI': 1,
+            'US-AR': 1 
+        }
+
+        gdpSA={
+            'PY': 1,
+            'CO': 1,
+            'VE': 1,
+            'CL': 1,
+            'SR': 1,
+            'BO': 1,
+            'EC': 1,
+            'AR': 1,
+            'GY': 1,
+            'BR': 1,
+            'PE': 1,
+            'UY': 1,
+            'FK': 1
+        }
+
+        gdpGER={
+            'DE-BE': 1,
+            'DE-ST': 1,
+            'DE-RP': 1,
+            'DE-BB': 1,
+            'DE-NI': 1,
+            'DE-MV': 1,
+            'DE-TH': 1,
+            'DE-BW': 1,
+            'DE-HH': 1,
+            'DE-SH': 1,
+            'DE-NW': 1,
+            'DE-SN': 1,
+            'DE-HB': 1,
+            'DE-SL': 1,
+            'DE-BY': 1,
+            'DE-HE': 1
+        }
+
+        gdpPOL={
+            'PL-WP': 1,
+            'PL-SK': 1,
+            'PL-ZP': 1,
+            'PL-SL': 1,
+            'PL-PK': 1,
+            'PL-MZ': 1,
+            'PL-PD': 1,
+            'PL-LB': 1,
+            'PL-LD': 1,
+            'PL-KP': 1,
+            'PL-LU': 1,
+            'PL-OP': 1,
+            'PL-PM': 1,
+            'PL-DS': 1,
+            'PL-MA': 1,
+            'PL-WN': 1
+        }
+
+        $('#btnClearMapaUSA').click(function(){
+            let mapObjectUSA = $('#usaMap').vectorMap('get', 'mapObject');
+            mapObjectUSA.series.regions[4].setValues(gdpUSA);
+        });
+
+        $('#btnClearMapaSA').click(function(){
+            let mapObjectSA = $('#saMap').vectorMap('get', 'mapObject');
+            mapObjectSA.series.regions[4].setValues(gdpSA);
+        });
+
+        $('#btnClearMapaGER').click(function(){
+            let mapObjectGER = $('#gerMap').vectorMap('get', 'mapObject');
+            mapObjectGER.series.regions[4].setValues(gdpGER);
+        });
+
+        $('#btnClearMapaPOL').click(function(){
+            let mapObjectPOL = $('#polMap').vectorMap('get', 'mapObject');
+            mapObjectPOL.series.regions[4].setValues(gdpPOL);
+        });
+
 
         
         function loadMap(mapa){
@@ -434,6 +570,13 @@
 
                                     /* Indice de colores amarillos */
                                     scale: ['#FBC02D']  
+                                },
+                                {
+                                    /* Arreglo de regiones blancas */
+                                    values: {},
+
+                                    /* Indice de colores blancas */
+                                    scale: ['#FFFFFF']  
                                 }
                             ]
                         }
@@ -478,6 +621,13 @@
 
                                     /* Indice de colores amarillos */
                                     scale: ['#FBC02D']  
+                                },
+                                {
+                                    /* Arreglo de regiones blancas */
+                                    values: {},
+
+                                    /* Indice de colores blancas */
+                                    scale: ['#FFFFFF']  
                                 }
                             ]
                         }
@@ -523,6 +673,13 @@
 
                                     /* Indice de colores amarillos */
                                     scale: ['#FBC02D']  
+                                },
+                                {
+                                    /* Arreglo de regiones blancas */
+                                    values: {},
+
+                                    /* Indice de colores blancas */
+                                    scale: ['#FFFFFF']  
                                 }
                             ]
                         }
@@ -568,6 +725,13 @@
 
                                     /* Indice de colores amarillos */
                                     scale: ['#FBC02D']  
+                                },
+                                {
+                                    /* Arreglo de regiones blancas */
+                                    values: {},
+
+                                    /* Indice de colores blancas */
+                                    scale: ['#FFFFFF']  
                                 }
                             ]
                         }
